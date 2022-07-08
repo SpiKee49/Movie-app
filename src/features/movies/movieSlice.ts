@@ -7,7 +7,7 @@ interface MovieListState {
 }
 
 const initialState: MovieListState = {
-  movieList: movieList,
+  movieList: [...movieList],
 };
 
 const moviesSlice = createSlice({

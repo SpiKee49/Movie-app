@@ -1,39 +1,40 @@
 .movie-list {
-    margin: 5em auto;
-    width: 80%;
+        margin: 5em auto;
+        width: 80%;
 
-    .list-item{
-        height: 5em;
-        
-        &:hover {
-            background-color: $primary;
-        }
-
-        .poster{
-            padding-left: 1em;
-            width:10%;
-            img{
-                width: 100%;
-                clip-path: circle();
-            }
+        .list-item{
+            height: 5em;
             
-        }
-
-        .description{
-            width: 90%;
-            box-sizing: border-box;
-            padding-left: 2em;
-            text-align: left;
-            font-size: large;
-            sub{
-                display: block;
-                color: $description;
-                margin-top: 0.5em;
-                margin-left: 0.5em;
+            &:hover {
+                background-color: $primary;
             }
+
+            .poster{
+                padding-left: 1em;
+                width:10%;
+                img{
+                    width: 100%;
+                    clip-path: circle();
+                }
+                
+            }
+
+            .description{
+                width: 90%;
+                box-sizing: border-box;
+                padding-left: 2em;
+                text-align: left;
+                font-size: large;
+                sub{
+                    display: block;
+                    color: $description;
+                    font-weight: bold;
+                    margin-top: 0.5em;
+                    margin-left: 0.5em;
+                }
+            }
+
+
+
         }
-
-
-
     }
-}

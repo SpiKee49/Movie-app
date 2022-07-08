@@ -9,9 +9,11 @@ function MovieList() {
 
   return (
     <table className="movie-list">
-      {movieList.map(item => (
-        <MovieListItem movie={item} />
-      ))}
+      <tbody>
+        {movieList.map(item => (
+          <MovieListItem movie={item} key={item.imdbID} />
+        ))}
+      </tbody>
     </table>
   );
 }

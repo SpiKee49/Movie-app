@@ -1,17 +1,18 @@
-@import 'normalize';
-
-$primary: rgb(219, 219, 219);
+$primary: rgb(230, 230, 230);
 $secondary: rgb(105, 105, 245);
 $warning: rgb(147, 22, 22);
 $description: rgb(112, 112, 112);
+
+@import 'normalize';
+@import 'navigation';
+@import 'view';
+@import 'movie-list';
+
 
 
 
 body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-    @import 'navigation';
-    @import 'view';
-    @import 'movie-list';
     
 };
