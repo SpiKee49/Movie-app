@@ -1,14 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-
+import React from 'react';
+import { useAppSelector } from '../app/hooks';
+import MovieListItem from './MovieListItem';
 
 function MovieList() {
-    const {movieList} = useSelector(store => store.movies)
-
+  const { movieList } = useAppSelector(
+    store => store.movies
+  );
 
   return (
-    
-  )
+    <table className="movie-list">
+      {movieList.map(item => (
+        <MovieListItem movie={item} />
+      ))}
+    </table>
+  );
 }
 
-export default MovieList
+export default MovieList;

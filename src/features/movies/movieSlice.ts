@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import movieList from '../../app/movieList';
+import { Movie } from '../../app/types';
 
-const initialState = {
+interface MovieListState {
+  movieList: Movie[];
+}
+
+const initialState: MovieListState = {
   movieList: movieList,
 };
 
