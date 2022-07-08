@@ -1,8 +1,24 @@
 import React from 'react';
-import './assets/styles/AppStyle.scss';
+import './assets/styles/AppStyles.scss';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import Movies from './views/Movies';
+import Favorites from './views/Favorites';
+import TheNavigation from './components/TheNavigation';
 
 function App() {
-  return <div>hello</div>;
+  return (
+    <BrowserRouter>
+      <TheNavigation />
+      <Routes>
+        <Route path="/" element={<Movies />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
