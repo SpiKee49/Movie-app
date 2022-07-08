@@ -3,7 +3,7 @@ import SearchForm from '../components/SearchForm';
 
 function Movies() {
   return (
-    <div>
+    <div className="view">
       <h1>You are on page Movies</h1>
       <SearchForm />
     </div>
