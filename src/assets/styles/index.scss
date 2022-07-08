@@ -1,6 +1,6 @@
 @import 'normalize';
 
-$primary: rgb(189, 188, 206);
+$primary: rgb(219, 219, 219);
 $secondary: rgb(105, 105, 245);
 $warning: rgb(147, 22, 22);
 $description: rgb(112, 112, 112);
@@ -12,7 +12,6 @@ body {
 
     @import 'navigation';
     @import 'view';
-
-
+    @import 'movie-list';
     
 };
