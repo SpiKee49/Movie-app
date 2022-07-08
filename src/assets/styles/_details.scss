@@ -1,0 +1,51 @@
+section{
+    margin: 0 auto;
+    width: 50%;
+    box-sizing: border-box;
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            display: inline-block;
+        }
+        button{
+           
+            all:unset;
+            width:2em;
+            height:2em;
+            padding: 0.2em;
+            border-radius: 25%;
+            
+
+            &:hover {
+                background-color: $primary;
+                transition: .5s ease-in-out;
+            }
+
+            svg{
+                color: $description;
+                width: 100%;
+            }
+        }
+    }
+
+    img{
+        width: 30%;
+        float: left;
+        margin-right: 2em;
+        box-sizing: inherit;
+    }
+
+    table{
+        box-sizing: inherit;
+
+        .label{
+            width: 50%;
+            font-weight: bold;
+        }
+
+    }
+    
+}

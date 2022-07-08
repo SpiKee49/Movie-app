@@ -8,7 +8,7 @@ function MovieListItem({ movie }: { movie: Movie }) {
   return (
     <tr
       className="list-item"
-      onClick={() => navigate('/favorites')}
+      onClick={() => navigate(`/movies/${movie.imdbID}`)}
     >
       <td className="poster">
         <img
