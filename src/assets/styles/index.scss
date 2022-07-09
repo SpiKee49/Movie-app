@@ -1,4 +1,4 @@
-$primary: rgb(230, 230, 230);
+$primary: rgb(220, 220, 220);
 $secondary: rgb(105, 105, 245);
 $warning: rgb(147, 22, 22);
 $description: rgb(112, 112, 112);
@@ -8,6 +8,7 @@ $description: rgb(112, 112, 112);
  @import 'view';
 @import 'movie-list';
 @import 'details';
+@import 'pagination';
 
 
 

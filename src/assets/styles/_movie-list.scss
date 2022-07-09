@@ -1,12 +1,15 @@
 .movie-list {
         margin: 5em auto;
+        margin-bottom: 1em;
         width: 80%;
 
         .list-item{
             height: 5em !important;
             min-height: 50px;
+            
             &:hover {
                 background-color: $primary;
+                transition: .5s ease-in-out;
             }
 
             .poster{

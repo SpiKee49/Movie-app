@@ -7,11 +7,12 @@ function Movies() {
   const { movieList } = useAppSelector(
     store => store.movies
   );
+
   return (
     <div className="view">
       <h1>Find your movie</h1>
       <SearchForm />
-      <MovieList items={movieList} />
+      {movieList && <MovieList items={movieList} />}
     </div>
   );
 }
