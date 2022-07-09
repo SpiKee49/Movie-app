@@ -26,7 +26,7 @@ function MovieDetails() {
       </section>
     );
 
-  const isFavorite = [...favorites].includes(id);
+  const isFavorite = [...favorites].includes(currentMovie);
 
   return (
     <section>
@@ -34,7 +34,7 @@ function MovieDetails() {
         <h1>{currentMovie.Title}</h1>
         <button
           onClick={() =>
-            dispatch(handleFavorites(currentMovie.imdbID))
+            dispatch(handleFavorites(currentMovie))
           }
         >
           <FavoriteIcon value={isFavorite} />

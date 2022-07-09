@@ -7,7 +7,7 @@ import { Movie } from '../../app/types';
 
 interface MovieListState {
   movieList: Movie[];
-  favorites: string[] | [];
+  favorites: Movie[] | [];
 }
 
 const initialState: MovieListState = {
@@ -21,12 +21,15 @@ const moviesSlice = createSlice({
   reducers: {
     handleFavorites: (
       state: MovieListState,
-      action: PayloadAction<string>
+      action: PayloadAction<Movie>
     ) => {
-      //TODO: saving to local storage
-      if ([...state.favorites].includes(action.payload)) {
+      if (
+        [...state.favorites]
+          .map(item => item.imdbID)
+          .includes(action.payload.imdbID)
+      ) {
         state.favorites = state.favorites.filter(
-          item => item !== action.payload
+          item => item.imdbID !== action.payload.imdbID
         );
         return;
       }
