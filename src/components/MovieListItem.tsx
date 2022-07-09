@@ -11,12 +11,19 @@ function MovieListItem({ movie }: { movie: Movie }) {
       className="list-item"
       onClick={() => navigate(`/movies/${movie.imdbID}`)}
     >
-      <td className="poster">
-        <MoviePoster src={movie.Poster} alt={movie.Title} />
+      <td>
+        <section className="poster">
+          <MoviePoster
+            src={movie.Poster}
+            alt={movie.Title}
+          />
+        </section>
       </td>
-      <td className="description">
-        {movie.Title}
-        <sub>{movie.Year}</sub>
+      <td>
+        <section className="description">
+          {movie.Title}
+          <sub>{movie.Year}</sub>
+        </section>
       </td>
     </tr>
   );

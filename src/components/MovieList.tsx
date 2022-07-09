@@ -1,25 +1,45 @@
 import React from 'react';
 import MovieListItem from './MovieListItem';
 import { Movie } from '../app/types';
-import Pagination from './Pagination';
 import { useAppSelector } from '../app/hooks';
 
 function MovieList({ items }: { items: Movie[] }) {
-  const { totalFound } = useAppSelector(
+  const { isLoading } = useAppSelector(
     store => store.movies
   );
+
+  const loader = getPlaceHolders();
+
   return (
     <>
       <table className="movie-list">
         <tbody>
-          {items.map(item => (
-            <MovieListItem movie={item} key={item.imdbID} />
-          ))}
+          {isLoading && loader}
+          {!isLoading &&
+            items.map(item => (
+              <MovieListItem
+                movie={item}
+                key={item.imdbID}
+              />
+            ))}
         </tbody>
       </table>
-      {+totalFound > 10 && <Pagination />}
     </>
   );
 }
 
 export default MovieList;
+
+function getPlaceHolders() {
+  let items = [];
+  for (let i = 0; i < 10; i++) {
+    items.push(
+      <tr>
+        <td>
+          <section className="loader"></section>
+        </td>
+      </tr>
+    );
+  }
+  return items;
+}

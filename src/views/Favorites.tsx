@@ -7,10 +7,10 @@ function Favorites() {
     store => store.movies
   );
   return (
-    <div className="view">
+    <section className="view">
       <h1>Your favorite movies</h1>
       <MovieList items={favorites} />
-    </div>
+    </section>
   );
 }
 

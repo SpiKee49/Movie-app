@@ -4,7 +4,10 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '../app/hooks';
-import { getMoviesFetch } from '../features/movies/movieSlice';
+import {
+  getMoviesFetch,
+  resetPageNumber,
+} from '../features/movies/movieSlice';
 import { handleSearch } from '../features/movies/movieSlice';
 
 function SearchForm() {
@@ -16,20 +19,23 @@ function SearchForm() {
     <form
       onSubmit={event => {
         event.preventDefault();
+        dispatch(resetPageNumber());
         dispatch(getMoviesFetch());
       }}
     >
-      <input
-        type="text"
-        className="search"
-        value={searchExp}
-        onChange={e =>
-          dispatch(handleSearch(e.target.value))
-        }
-      />
-      <button className="search-button">
-        <SearchIcon />
-      </button>
+      <section className="input-holder">
+        <input
+          type="text"
+          className="search"
+          value={searchExp}
+          onChange={e =>
+            dispatch(handleSearch(e.target.value))
+          }
+        />
+        <button className="search-button">
+          <SearchIcon />
+        </button>
+      </section>
     </form>
   );
 }

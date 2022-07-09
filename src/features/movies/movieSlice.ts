@@ -27,6 +27,9 @@ const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
+    resetPageNumber: (state: MovieListState) => {
+      state.currentPage = 1;
+    },
     increasePageNumber: (state: MovieListState) => {
       if (+state.totalFound / 10 === state.currentPage) {
         console.log('limitExceded');
@@ -48,6 +51,8 @@ const moviesSlice = createSlice({
       if (action.payload === '') {
         state.movieList = [];
         state.searchExp = action.payload;
+        state.currentPage = 1;
+        state.totalFound = '';
         return;
       }
       state.searchExp = action.payload;
@@ -82,10 +87,9 @@ const moviesSlice = createSlice({
         total: string;
       }>
     ) => {
+      state.isLoading = false;
       state.movieList = action.payload.movies;
       state.totalFound = action.payload.total;
-      state.isLoading = false;
-      console.log(state.totalFound);
     },
     getMoviesFailure: (state: MovieListState) => {
       state.isLoading = false;
@@ -101,6 +105,7 @@ export const {
   getMoviesFailure,
   increasePageNumber,
   decreasePageNumber,
+  resetPageNumber,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
