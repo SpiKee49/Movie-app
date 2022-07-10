@@ -1,77 +1,101 @@
 .movie-list {
-        margin: 5em auto;
-        margin-bottom: 1em;
-        width: 80%;
+    margin: 5em auto;
+    margin-bottom: 1em;
+    width: 100%;
 
-        tr{ 
-            height: 5em !important;
-            min-height: 50px;
-
-
-
-            
-            .loader {
-                margin: 0 auto;
-                border: 5px solid #f3f3f3; /* Light grey */
-                border-top: 5px solid $description; /* Blue */
-                border-left: 5px solid $description; /* Blue */
-                border-bottom: 5px solid $description; /* Blue */
-                border-radius: 50%;
-                width: 25px;
-                height: 25px;
-                animation: spin 2s linear infinite;
-              }
-              
-              @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-              }
-              
-        }
-
-        .list-item{
-            
-            
-            &:hover {
-                background-color: $primary;
-                transition: .5s ease-in-out;
-            }
-
-            
-
-            .poster{
-                padding-left: 1em;
-                text-align: center;
-                border: 1px solid black;
-
-
-                svg,img{
-                    margin: auto;
-                    min-width: 50px;
-                    min-height: 50px;
-                    clip-path: circle();
-                }
-                
-            }
-
-            .description{
-                width: 90%;
-                box-sizing: border-box;
-                padding-left: 2em;
-                text-align: left;
-                font-size: large;
-                sub{
-                    display: block;
-                    color: $description;
-                    font-weight: bold;
-                    margin-top: 0.5em;
-                    margin-left: 0.5em;
-                }
-            }
-        }
-
+    tr {
+        width: 100%;
+        height: 4em;
+        min-height: 50px;
     
+        &:first-child{width: 20%;
+        border: 1px black;}
 
+        .loader {
+            margin: 0 auto;
+            border: 5px solid #f3f3f3;
+            /* Light grey */
+            border-top: 5px solid $description;
+            /* Blue */
+            border-left: 5px solid $description;
+            /* Blue */
+            border-bottom: 5px solid $description;
+            /* Blue */
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            animation: spin 2s linear infinite;
+        }
 
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
     }
+
+    .list-item {
+      
+
+        &:hover {
+            background-color: $primary;
+            transition: .5s ease-in-out;
+            
+            .poster{
+                svg{
+                color: $description;
+                transition: .5s ease-in-out
+               
+                }
+            }
+        }
+
+        .poster {
+            column-width: 14.999%;
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            margin-right: 10px;
+           
+            svg,
+            img {
+                max-width: 50px;
+                min-width: 40px;
+                margin: 0 auto;
+                clip-path: circle();    
+            }
+
+            svg{
+                color: $primary;
+            }
+
+        }
+
+        .description {
+            height: inherit;
+            column-width: 84.9999%;
+            text-align: left;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+
+            sub {
+                display: block;
+                color: $description;
+                font-weight: 100;
+                margin-top: 0.5em;
+                margin-left: 0.5em;
+            }
+        }
+    }
+
+
+
+
+
+}

@@ -19,7 +19,7 @@ function* workGetMoviesFetch(): any {
     const formattedMovies = yield movies.json();
     yield put(
       getMoviesSuccess({
-        movies: formattedMovies.Search,
+        movies: formattedMovies,
         total: formattedMovies.totalResults,
       })
     );
