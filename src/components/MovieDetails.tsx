@@ -21,11 +21,11 @@ function MovieDetails() {
     dispatch(setMovieId(id));
     dispatch(getCurrentMovieFetch());
   }, [dispatch, id]);
-  const { movie, isLoading } = useAppSelector(
-    store => store.currentMovie
-  );
   const { favorites } = useAppSelector(
     store => store.movies
+  );
+  const { movie, isLoading } = useAppSelector(
+    store => store.currentMovie
   );
 
   if (id == null || movie == null)
@@ -35,9 +35,11 @@ function MovieDetails() {
       </section>
     );
 
-  if (isLoading) return <PlaceholderLoader />;
+  if (isLoading) return <PlaceholderLoader center={true} />;
 
-  const isFavorite = [...favorites].includes(movie);
+  const isFavorite = [...favorites]
+    .map(item => item.imdbID)
+    .includes(movie.imdbID);
 
   return (
     <section>

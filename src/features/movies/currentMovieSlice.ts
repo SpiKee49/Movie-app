@@ -20,6 +20,7 @@ const currentMoviesSlice = createSlice({
   name: 'currentMovie',
   initialState,
   reducers: {
+    /* self-explanatory */
     setMovieId: (
       state: CurrentMovieState,
       action: PayloadAction<string | undefined>
@@ -33,7 +34,7 @@ const currentMoviesSlice = createSlice({
       state: CurrentMovieState,
       action: PayloadAction<Movie>
     ) => {
-      state.isLoading = true;
+      state.isLoading = false;
       state.movie = action.payload;
     },
     getCurrentMovieFailure: (state: CurrentMovieState) => {

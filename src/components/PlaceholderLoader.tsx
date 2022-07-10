@@ -1,8 +1,16 @@
 import React from 'react';
 
-function PlaceholderLoader() {
+function PlaceholderLoader({
+  center,
+}: {
+  center: boolean;
+}) {
   return (
-    <section className="loader-wrap">
+    <section
+      className={
+        center ? 'loader-wrap center' : 'loader-wrap'
+      }
+    >
       <div className="loader"></div>
     </section>
   );

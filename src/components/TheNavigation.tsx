@@ -11,13 +11,3 @@ function TheNavigation() {
 }
 
 export default TheNavigation;
-
-// function CustomLink({
-//   to,
-//   value,
-// }: {
-//   to: string;
-//   value: string;
-// }) {
-//   return <li></li>;
-// }

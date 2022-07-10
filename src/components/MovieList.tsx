@@ -9,13 +9,15 @@ function MovieList({ items }: { items: Movie[] }) {
     store => store.movies
   );
   const moreInfo = items === favorites;
-  const loader = getPlaceHolders();
+
+  /* placeholders used when data not fetched yet*/
+  const placeholders = getPlaceHolders();
 
   return (
     <>
       <table className="movie-list">
         <tbody>
-          {isLoading && loader}
+          {isLoading && placeholders}
           {!isLoading &&
             items.map(item => (
               <MovieListItem
@@ -32,13 +34,14 @@ function MovieList({ items }: { items: Movie[] }) {
 
 export default MovieList;
 
+/* function to make 10 rows with placeholders */
 function getPlaceHolders() {
   let items = [];
   for (let i = 0; i < 10; i++) {
     items.push(
-      <tr>
+      <tr key={i}>
         <td>
-          <PlaceholderLoader />
+          <PlaceholderLoader center={false} />
         </td>
       </tr>
     );

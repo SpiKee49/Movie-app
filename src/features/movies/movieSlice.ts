@@ -16,7 +16,9 @@ interface MovieListState {
 
 const initialState: MovieListState = {
   movieList: [],
-  favorites: [],
+  favorites: JSON.parse(
+    localStorage.getItem('favoriteItems') ?? ''
+  ),
   searchExp: '',
   totalFound: '',
   currentPage: 1,
@@ -32,10 +34,8 @@ const moviesSlice = createSlice({
     },
     increasePageNumber: (state: MovieListState) => {
       if (+state.totalFound / 10 === state.currentPage) {
-        console.log('limitExceded');
         return;
       }
-
       state.currentPage = state.currentPage + 1;
       console.log(state.currentPage);
     },
@@ -44,6 +44,9 @@ const moviesSlice = createSlice({
 
       state.currentPage -= 1;
     },
+
+    /* getting input value from form */
+
     handleSearch: (
       state: MovieListState,
       action: PayloadAction<string>
@@ -57,6 +60,9 @@ const moviesSlice = createSlice({
       }
       state.searchExp = action.payload;
     },
+
+    /* adding and removing favorites */
+
     handleFavorites: (
       state: MovieListState,
       action: PayloadAction<Movie>
@@ -69,17 +75,29 @@ const moviesSlice = createSlice({
         state.favorites = state.favorites.filter(
           item => item.imdbID !== action.payload.imdbID
         );
-        return;
+      } else {
+        state.favorites = [
+          ...state.favorites,
+          action.payload,
+        ];
       }
 
-      state.favorites = [
-        ...state.favorites,
-        action.payload,
-      ];
+      /* Saving to storage */
+
+      localStorage.setItem(
+        'favoriteItems',
+        JSON.stringify(state.favorites)
+      );
     },
+
+    /* fetching Movies*/
+
     getMoviesFetch: (state: MovieListState) => {
       state.isLoading = true;
     },
+
+    /* fetching positive response*/
+
     getMoviesSuccess: (
       state: MovieListState,
       action: PayloadAction<{
@@ -91,6 +109,9 @@ const moviesSlice = createSlice({
       state.movieList = action.payload.movies;
       state.totalFound = action.payload.total;
     },
+
+    /* fetching negative response*/
+
     getMoviesFailure: (state: MovieListState) => {
       state.isLoading = false;
     },
