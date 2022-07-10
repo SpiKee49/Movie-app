@@ -5,10 +5,9 @@ import { useAppSelector } from '../app/hooks';
 import PlaceholderLoader from './PlaceholderLoader';
 
 function MovieList({ items }: { items: Movie[] }) {
-  const { isLoading, favorites } = useAppSelector(
+  const { isLoading } = useAppSelector(
     store => store.movies
   );
-  const moreInfo = items === favorites;
 
   /* placeholders used when data not fetched yet*/
   const placeholders = getPlaceHolders();
@@ -22,7 +21,6 @@ function MovieList({ items }: { items: Movie[] }) {
             items.map(item => (
               <MovieListItem
                 movie={item}
-                addInfo={moreInfo}
                 key={item.imdbID}
               />
             ))}
