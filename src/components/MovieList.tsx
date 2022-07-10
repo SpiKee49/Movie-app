@@ -2,12 +2,13 @@ import React from 'react';
 import MovieListItem from './MovieListItem';
 import { Movie } from '../app/types';
 import { useAppSelector } from '../app/hooks';
+import PlaceholderLoader from './PlaceholderLoader';
 
 function MovieList({ items }: { items: Movie[] }) {
-  const { isLoading } = useAppSelector(
+  const { isLoading, favorites } = useAppSelector(
     store => store.movies
   );
-
+  const moreInfo = items === favorites;
   const loader = getPlaceHolders();
 
   return (
@@ -19,6 +20,7 @@ function MovieList({ items }: { items: Movie[] }) {
             items.map(item => (
               <MovieListItem
                 movie={item}
+                addInfo={moreInfo}
                 key={item.imdbID}
               />
             ))}
@@ -36,7 +38,7 @@ function getPlaceHolders() {
     items.push(
       <tr>
         <td>
-          <section className="loader"></section>
+          <PlaceholderLoader />
         </td>
       </tr>
     );

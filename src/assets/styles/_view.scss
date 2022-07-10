@@ -6,7 +6,7 @@
 
 .view {
     margin: 0 auto;
-    margin-top: 15vh;
+    margin-top: 10vh;
     width: 60vw;
     text-align: center;
     background-color: white;
@@ -15,11 +15,15 @@
     
     h1{
         font-size: 3em;
+        font-weight: 100;
+        text-transform: uppercase;
+        color: $description;
     }
 
 
     form {
         margin: 0 auto;
+        margin-top: 50px;
         width: 70%;
        
         .input-holder{
