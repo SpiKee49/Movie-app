@@ -37,7 +37,6 @@ const moviesSlice = createSlice({
         return;
       }
       state.currentPage = state.currentPage + 1;
-      console.log(state.currentPage);
     },
     decreasePageNumber: (state: MovieListState) => {
       if (1 === state.currentPage) return;
@@ -114,6 +113,9 @@ const moviesSlice = createSlice({
 
     getMoviesFailure: (state: MovieListState) => {
       state.isLoading = false;
+      alert(
+        'Error occured during fetch process, see console for more information.'
+      );
     },
   },
 });

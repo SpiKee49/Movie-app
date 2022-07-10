@@ -3,13 +3,7 @@ import { Movie } from '../app/types';
 import { useNavigate } from 'react-router-dom';
 import { ImageNotFoundIcon } from './Icons';
 
-function MovieListItem({
-  movie,
-  addInfo,
-}: {
-  movie: Movie;
-  addInfo: boolean;
-}) {
+function MovieListItem({ movie }: { movie: Movie }) {
   const navigate = useNavigate();
 
   return (
@@ -23,9 +17,7 @@ function MovieListItem({
       <td className="description">
         {movie.Title}
         <div className="info">
-          {`Type: ${movie.Type} / Year: ${movie.Year}`}
-          {addInfo &&
-            ` / Director: ${movie.Director} / Actors: ${movie.Actors} / Runtime: ${movie.Runtime}`}
+          {`Type: ${movie.Type} / Year: ${movie.Year} / Director: ${movie.Director} / Actors: ${movie.Actors} / Runtime: ${movie.Runtime}`}
         </div>
       </td>
     </tr>
