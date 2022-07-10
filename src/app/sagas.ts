@@ -5,6 +5,7 @@ import {
   all,
 } from 'redux-saga/effects';
 import { store } from './store';
+import { Movie } from './types';
 import {
   getMoviesSuccess,
   getMoviesFailure,
@@ -21,19 +22,35 @@ function* workGetMoviesFetch(): any {
   const { searchExp, currentPage } =
     store.getState().movies;
   try {
-    const movies = yield call(() =>
+    const search = yield call(() =>
       fetch(
         `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchExp}&page=${currentPage}`
       )
     );
-    const formattedMovies = yield movies.json();
+    const searchResult = yield search.json();
+    const searchedMovies: Movie[] = searchResult.Search;
+    const movies = searchedMovies
+      .map(item => item.imdbID)
+      .map(item =>
+        call(() =>
+          fetch(
+            `http://www.omdbapi.com/?apikey=57646235&i=${item}`
+          )
+        )
+      );
+    const moviesResponse: Response[] = yield all(movies);
+
+    const formattedMovies = yield all(
+      moviesResponse.map(item => item.json())
+    );
     yield put(
       getMoviesSuccess({
-        movies: formattedMovies.Search,
-        total: formattedMovies.totalResults,
+        movies: formattedMovies,
+        total: searchResult.totalResults,
       })
     );
   } catch (error) {
+    console.log(error);
     yield put(getMoviesFailure());
   }
 }
