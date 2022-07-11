@@ -1,16 +1,24 @@
 .movie-list {
     margin: 5em auto;
     margin-bottom: 1em;
-    width: 70%;
+    width: 80%;
+    border-collapse: collapse;
+    min-width: 300px;
 
     tr {
         width: 100%;
         height: 4em;
         min-height: 50px;
+       
     }
 
     .list-item {
-      
+        display: flex;
+        height: auto;
+        align-items: center;
+        gap: 1em;
+        padding: 10px;
+        background-color: $primary;
 
         &:hover {
             background-color: $primary;
@@ -26,18 +34,17 @@
         }
 
         .poster {
-            column-width: 14.999%;
+            flex: 0 0 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 5px;
-           
+            width: 50px;
+            height: 50px;
             svg,
             img {
-                width: 50px;
-                height: 50px;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
-                
                 margin: 0 auto;
                 clip-path: circle();    
             }
@@ -48,14 +55,30 @@
 
         }
 
+        .favorite{
+            flex: 0 0 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg{
+                width: 100%;
+                height: 100%;
+                margin: 0  auto;
+                color: $description;
+                
+          
+            }
+
+        }
+
         .description {
-            column-width: 84.9999%;
+            width: auto;
+            flex-grow: 1;
+            flex-shrink: 1;
             text-align: left;
             font-size: large;
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
-            overflow-wrap: break-word;
-            height: auto;
             padding: 10px;
 
             .info {
@@ -65,6 +88,17 @@
                 color: $description;
                 font-weight: 100;
                 
+            }
+        }
+
+        .rating{
+            
+            p{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                span{
+                    font-weight: bold;
+                    color: $secondary;
+                }
             }
         }
     }

@@ -3,8 +3,9 @@ import SearchForm from '../components/SearchForm';
 import MovieList from '../components/MovieList';
 import { useAppSelector } from '../app/hooks';
 import Pagination from '../components/Pagination';
+import NoDataFound from '../components/NoDataFound';
 
-function Movies() {
+function Home() {
   const { movieList, isLoading, noData, totalFound } =
     useAppSelector(store => store.movies);
 
@@ -21,15 +22,4 @@ function Movies() {
   );
 }
 
-export default Movies;
-
-function NoDataFound() {
-  return (
-    <div className="no-data">
-      <img
-        src={require('../assets/img/no-data.png')}
-        alt="no data found"
-      />
-    </div>
-  );
-}
+export default Home;
