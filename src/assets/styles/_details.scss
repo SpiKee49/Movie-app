@@ -5,18 +5,20 @@ section{
 
     header{
         display: flex;
+        gap: 10px;
         justify-content: space-between;
         align-items: center;
         h1{
             display: inline-block;
         }
         button{
-           
             all:unset;
-            width:2em;
-            height:2em;
+            flex: 0 0 40px;
+            width:40px;
+            height:40px;
             padding: 0.2em;
             border-radius: 25%;
+            
             
 
             &:hover {
@@ -42,6 +44,7 @@ section{
         box-sizing: inherit;
 
         .label{
+            vertical-align: top;
             width: 50%;
             font-weight: bold;
         }
