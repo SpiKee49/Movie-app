@@ -12,6 +12,7 @@ interface MovieListState {
   totalFound: string;
   currentPage: number;
   isLoading: boolean;
+  noData: boolean;
 }
 
 const initialState: MovieListState = {
@@ -23,6 +24,7 @@ const initialState: MovieListState = {
   totalFound: '',
   currentPage: 1,
   isLoading: false,
+  noData: true,
 };
 
 const moviesSlice = createSlice({
@@ -105,6 +107,7 @@ const moviesSlice = createSlice({
       }>
     ) => {
       state.isLoading = false;
+      state.noData = false;
       state.movieList = action.payload.movies;
       state.totalFound = action.payload.total;
     },
@@ -113,9 +116,8 @@ const moviesSlice = createSlice({
 
     getMoviesFailure: (state: MovieListState) => {
       state.isLoading = false;
-      alert(
-        'Error occured during fetch process, see console for more information.'
-      );
+      state.noData = true;
+      state.movieList = [];
     },
   },
 });

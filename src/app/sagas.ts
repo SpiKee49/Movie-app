@@ -50,7 +50,6 @@ function* workGetMoviesFetch(): any {
       })
     );
   } catch (error) {
-    console.error(error);
     yield put(getMoviesFailure());
   }
 }

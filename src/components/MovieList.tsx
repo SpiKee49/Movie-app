@@ -13,20 +13,15 @@ function MovieList({ items }: { items: Movie[] }) {
   const placeholders = getPlaceHolders();
 
   return (
-    <>
-      <table className="movie-list">
-        <tbody>
-          {isLoading && placeholders}
-          {!isLoading &&
-            items.map(item => (
-              <MovieListItem
-                movie={item}
-                key={item.imdbID}
-              />
-            ))}
-        </tbody>
-      </table>
-    </>
+    <table className="movie-list">
+      <tbody>
+        {isLoading && placeholders}
+        {!isLoading &&
+          items.map(item => (
+            <MovieListItem movie={item} key={item.imdbID} />
+          ))}
+      </tbody>
+    </table>
   );
 }
 
