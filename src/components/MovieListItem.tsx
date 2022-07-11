@@ -22,7 +22,7 @@ function MovieListItem({ movie }: { movie: Movie }) {
   return (
     <tr
       className="list-item"
-      onClick={() => navigate(`/movies/${movie.imdbID}`)}
+      onClick={() => navigate(`/movie/${movie.imdbID}`)}
     >
       <td className="poster">
         <MoviePoster src={movie.Poster} alt={movie.Title} />

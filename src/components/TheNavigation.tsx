@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 function TheNavigation() {
   return (
     <nav>
-      <NavLink to="/">Search Movie</NavLink>
-      <NavLink to="/favorites">Favorites</NavLink>
+      <NavLink to="/">Homepage</NavLink>
+      <NavLink to="/my-favorites">My favorites</NavLink>
     </nav>
   );
 }
