@@ -17,9 +17,7 @@ interface MovieListState {
 
 const initialState: MovieListState = {
   movieList: [],
-  favorites: JSON.parse(
-    localStorage.getItem('favoriteItems') ?? ''
-  ),
+  favorites: [],
   searchExp: '',
   totalFound: '',
   currentPage: 1,
@@ -31,6 +29,15 @@ const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
+    getFavorites: (state: MovieListState) => {
+      try {
+        state.favorites = JSON.parse(
+          localStorage.getItem('favoriteItems') ?? ''
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    },
     resetPageNumber: (state: MovieListState) => {
       state.currentPage = 1;
     },
@@ -131,6 +138,7 @@ export const {
   increasePageNumber,
   decreasePageNumber,
   resetPageNumber,
+  getFavorites,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

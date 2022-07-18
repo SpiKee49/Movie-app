@@ -1,110 +1,97 @@
 .movie-list {
-    margin: 5em auto;
-    margin-bottom: 1em;
-    width: 80%;
-    border-collapse: collapse;
-    min-width: 300px;
+  margin: 5em auto;
+  margin-bottom: 1em;
+  width: 80%;
+  border-collapse: collapse;
+  min-width: 300px;
 
-    tr {
+  tr {
+    width: 100%;
+    height: 4em;
+    min-height: 50px;
+  }
+
+  .list-item {
+    display: flex;
+    height: auto;
+    align-items: center;
+    gap: 1em;
+    padding: 10px;
+
+    &:hover {
+      background-color: $primary;
+      transition: 0.5s ease-in-out;
+
+      .poster {
+        svg {
+          color: $description;
+          transition: 0.5s ease-in-out;
+        }
+      }
+    }
+
+    .poster {
+      flex: 0 0 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      svg,
+      img {
         width: 100%;
-        height: 4em;
-        min-height: 50px;
-       
+        height: 100%;
+        object-fit: cover;
+        margin: 0 auto;
+        clip-path: circle();
+      }
+
+      svg {
+        color: $primary;
+      }
     }
 
-    .list-item {
-        display: flex;
+    .favorite {
+      flex: 0 0 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        color: $description;
+      }
+    }
+
+    .description {
+      width: auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+      text-align: left;
+      font-size: large;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      padding: 10px;
+
+      .info {
+        font-size: small;
         height: auto;
-        align-items: center;
-        gap: 1em;
-        padding: 10px;
-        background-color: $primary;
-
-        &:hover {
-            background-color: $primary;
-            transition: .5s ease-in-out;
-            
-            .poster{
-                svg{
-                color: $description;
-                transition: .5s ease-in-out
-               
-                }
-            }
-        }
-
-        .poster {
-            flex: 0 0 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            svg,
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                margin: 0 auto;
-                clip-path: circle();    
-            }
-
-            svg{
-                color: $primary;
-            }
-
-        }
-
-        .favorite{
-            flex: 0 0 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            svg{
-                width: 100%;
-                height: 100%;
-                margin: 0  auto;
-                color: $description;
-                
-          
-            }
-
-        }
-
-        .description {
-            width: auto;
-            flex-grow: 1;
-            flex-shrink: 1;
-            text-align: left;
-            font-size: large;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            padding: 10px;
-
-            .info {
-                font-size: small;
-                height: auto;
-                display: block;
-                color: $description;
-                font-weight: 100;
-                
-            }
-        }
-
-        .rating{
-            
-            p{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                span{
-                    font-weight: bold;
-                    color: $secondary;
-                }
-            }
-        }
+        display: block;
+        color: $description;
+        font-weight: 100;
+      }
     }
 
-
-
-
-
+    .rating {
+      p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+          'Trebuchet MS', sans-serif;
+        span {
+          font-weight: bold;
+          color: $secondary;
+        }
+      }
+    }
+  }
 }

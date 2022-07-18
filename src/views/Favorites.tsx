@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MovieList from '../components/MovieList';
-import { useAppSelector } from '../app/hooks';
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../app/hooks';
 import NoDataFound from '../components/NoDataFound';
+import { getFavorites } from '../features/movies/movieSlice';
 
 function Favorites() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getFavorites());
+  }, [dispatch]);
+
   const { favorites } = useAppSelector(
     store => store.movies
   );
